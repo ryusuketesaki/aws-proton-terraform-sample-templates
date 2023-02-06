@@ -89,7 +89,7 @@ resource "aws_codebuild_project" "build_project" {
                       "commands": [
                         "aws proton --region $AWS_DEFAULT_REGION get-service --name $service_name | jq -r .service.spec > service.yaml",
                         "cat service.yaml",
-                        "yq w service.yaml 'instances[*].spec.image' \"$IMAGE_ID\" > rendered_service.yaml"
+                        "yq w service.yaml 'instances[*].spec.image' \"$IMAGE_ID\" > rendered_service.yaml",
                         "cat rendered_service.yaml"
                       ]
                     }
