@@ -144,6 +144,8 @@ resource "aws_codebuild_project" "deploy_project" {
                 "commands": [
                   "pip3 install --upgrade --user awscli",
                   "aws proton --region $AWS_DEFAULT_REGION update-service-instance --deployment-type CURRENT_VERSION --name $service_instance_name --service-name $service_name --spec file://${var.pipeline.inputs.service_dir}/rendered_service.yaml",
+                  "pwd && ls -al,
+                  "cat file://${var.pipeline.inputs.service_dir}/rendered_service.yaml",
                   "aws proton --region $AWS_DEFAULT_REGION wait service-instance-deployed --name $service_instance_name --service-name $service_name"
                 ]
               }
