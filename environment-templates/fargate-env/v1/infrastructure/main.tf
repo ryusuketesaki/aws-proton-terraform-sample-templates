@@ -29,7 +29,7 @@ resource "aws_sns_topic" "ping_topic" {
 }
 
 resource "aws_ecs_cluster" "fargate_cluster" {
-  name = "${var.environment.name}-Cluster"
+  name = "${var.environment.name}-Cluster-V1.1"
 }
 
 resource "aws_ecs_cluster_capacity_providers" "fargate_cluster_capacity_providers" {
